@@ -1,5 +1,6 @@
 import "./App.css";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
+import caffeine from "./caffeine.png";
 
 function App() {
   const websiteInfo = [
@@ -57,7 +58,7 @@ function App() {
         {chunk.map((website, colIndex) => (
           <Col key={website.name + colIndex} sm={12} md={6} lg={2}>
             <Card>
-              <Card.Img variant="top" src="caffeine.png" />
+              <Card.Img variant="top" src={caffeine} />
               <Card.Header className="centerText">{website.name}</Card.Header>
               <Card.Body className="centerText">
                 <Card.Text>{website.description}</Card.Text>
@@ -82,7 +83,9 @@ function App() {
       fluid
       className="hub_container"
     >
+      <br></br>
       <h1 className="centerText">Welcome To The Hub!</h1>
+      <br></br>
 
       <Row>
         <ShowCards />
