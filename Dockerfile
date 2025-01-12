@@ -6,5 +6,7 @@ COPY . .
 RUN npm run build
 EXPOSE 8000
 
+CMD [ "pwd" ]
+CMD [ "ls" ]
 RUN chmod +x run.sh
-ENTRYPOINT "/app/run.sh"
+ENTRYPOINT "./run.sh"
