@@ -7,7 +7,7 @@ RUN npm run build
 EXPOSE 8000
 
 RUN echo $(ls)
-RUN echo $(ls the-hub)
-RUN echo $(pwd)
+RUN echo $(cat run.sh)
+RUN echo $(readlink -f run.sh)
 RUN chmod +x run.sh
-ENTRYPOINT "./run.sh"
+ENTRYPOINT [ "./run.sh" ]
