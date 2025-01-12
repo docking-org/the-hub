@@ -5,22 +5,45 @@
 # Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
-stages:
-- build
-- test
-- deploy
-- review
-- dast
-- staging
-- canary
-- production
-- incremental rollout 10%
-- incremental rollout 25%
-- incremental rollout 50%
-- incremental rollout 100%
-- performance
-- cleanup
-sast:
-  stage: test
-include:
-- template: Auto-DevOps.gitlab-ci.yml
+# stages:
+# - build
+# - test
+# - deploy
+# - review
+# - dast
+# - staging
+# - canary
+# - production
+# - incremental rollout 10%
+# - incremental rollout 25%
+# - incremental rollout 50%
+# - incremental rollout 100%
+# - performance
+# - cleanup
+# sast:
+#   stage: test
+# include:
+# - template: Auto-DevOps.gitlab-ci.yml
+
+deploy shared:
+  only:
+    - main
+  stage: deploy
+  tags:
+    - the-hub
+  script:
+    - echo "Building Docker image..."
+    - docker build -t "${CI_PROJECT_NAME}" .
+
+    - echo "Stopping and removing existing container (if exists)..."
+    - if [ $(docker ps -aq -f name=${CI_PROJECT_NAME}) ]; then
+      docker stop ${CI_PROJECT_NAME};
+      docker rm ${CI_PROJECT_NAME};
+      fi
+
+    - echo "Running new container..."
+    - docker run -d
+      --restart unless-stopped
+      --name ${CI_PROJECT_NAME}
+      -p 0.0.0.0:8000:8000
+      ${CI_PROJECT_NAME}
