@@ -1,3 +1,4 @@
+#React Initializations
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
@@ -6,8 +7,12 @@ COPY . .
 RUN npm run build
 EXPOSE 8000
 
-RUN apk add --no-cache bash
-RUN apk add --no-cache python3 py3-pip
+#Adding Bash and Gunicorn
+RUN apk add --no-cache bash python3 py3-pip
+RUN python3 -m venv /venv
+ENV PATH="/venv/bin:$PATH"
 RUN pip install gunicorn
+
+#Run the gunicorn command in run.sh
 RUN chmod +x run.sh
 ENTRYPOINT [ "./run.sh" ]
