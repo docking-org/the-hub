@@ -8,9 +8,20 @@ import advisor from "./Images/advisor.png";
 import nextmove from "./Images/arthor_nextmove.png";
 import bks from "./Images/bks.jpg";
 import dock from "./Images/dock.jpg";
+import sea from "./Images/sea.jpg";
+import amis from "./Images/amis.png";
+import wiki from "./Images/wiki.jpg";
+import cc from "./Images/cc.jpg";
 
 function App() {
   const [websiteInfo, setWebsiteInfo] = useState([
+    {
+      name: "Amis",
+      description:
+        "TA Mouse Imaging Server (AMIS), the home for mouse imaging data generated via the NIH Common fund Program for Illuminating the Druggable Genome (IDG).",
+      url: "https://amis.docking.org/",
+      img: amis,
+    },
     {
       name: "BKS Lab",
       description:
@@ -38,13 +49,13 @@ function App() {
       description:
         "The Similarity ensemble approach relates proteins based on the set-wise chemical similarity among their ligands.",
       url: "https://sea.docking.org/",
-      img: caffeine,
+      img: sea,
     },
     {
       name: "Wiki",
       description: "the wiki of the Shoichet Lab and Irwin Lab at UCSF.",
       url: "https://wiki.docking.org/index.php?title=Main_Page",
-      img: caffeine,
+      img: wiki,
     },
     {
       name: "DOCK",
@@ -142,7 +153,7 @@ function App() {
       description:
         "The Chemistry Commons connects synthetic organic chemists with biologists seeking new reagents for biology, each assisted by their medicinal and computational chemistry colleagues.",
       url: "https://commons.docking.org/",
-      img: caffeine,
+      img: cc,
     },
     {
       name: "ZINC 15",
