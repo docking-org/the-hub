@@ -10,5 +10,6 @@ RUN echo $(ls)
 RUN echo $(cat ./run.sh)
 RUN echo $(readlink -f run.sh)
 
-#RUN chmod +x run.sh
-#ENTRYPOINT [ "./run.sh" ]
+RUN apk add --no-cache bash
+RUN chmod +x run.sh
+ENTRYPOINT [ "./run.sh" ]
