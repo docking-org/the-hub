@@ -16,6 +16,6 @@ EXPOSE 8000
 
 #Run the gunicorn command in run.sh
 
-RUN apk add --no-cache tmux
+RUN apk add --no-cache bash tmux
 RUN chmod +x run.sh
 ENTRYPOINT [ "./run.sh" ]
