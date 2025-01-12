@@ -7,15 +7,7 @@ COPY . .
 RUN npm run build
 EXPOSE 8000
 
-
-#Adding Bash and Gunicorn
-# RUN apk add --no-cache bash python3 py3-pip
-# RUN python3 -m venv /venv
-# ENV PATH="/venv/bin:$PATH"
-# RUN pip install gunicorn
-
-#Run the gunicorn command in run.sh
-
-RUN apk add --no-cache bash tmux
+#Run npm start using tmux
+RUN apk add bash tmux
 RUN chmod +x run.sh
 ENTRYPOINT [ "./run.sh" ]
