@@ -1,9 +1,7 @@
 import "./Home.css";
 import { Container, Card, Row, Col } from "react-bootstrap";
-import { useState } from "react";
 
 import caffeine from "./Images/caffeine.png";
-import ab3 from "./Images/AB3.png";
 import advisor from "./Images/advisor.png";
 import nextmove from "./Images/arthor_nextmove.png";
 import bks from "./Images/bks.jpg";
@@ -12,9 +10,11 @@ import sea from "./Images/sea.jpg";
 import amis from "./Images/amis.png";
 import wiki from "./Images/wiki.jpg";
 import cc from "./Images/cc.jpg";
+import lsd from "./Images/lsd.png";
+import aws from "./Images/aws.png";
 
 function App() {
-  const [websiteInfo, setWebsiteInfo] = useState([
+  const websiteInfo = [
     {
       name: "Amis",
       description:
@@ -23,26 +23,16 @@ function App() {
       img: amis,
     },
     {
-      name: "BKS Lab",
-      description:
-        "The Shoichet lab seeks to bring chemical reagents to biology, combining computation and experiment.",
-      url: "https://bkslab.org/home",
-      img: bks,
-    },
-    {
       name: "Cartblanche 22",
       description:
         "Cartblanche22, an interface to ZINC-22. ZINC-22 is a free database of commercially-available compounds for virtual screening.",
       url: "https://cartblanche22.docking.org/",
-      img: caffeine,
     },
-
     {
       name: "Irwin Lab",
       description:
         "We develop software tools and databases for ligand discovery and systems pharmacology.",
       url: "https://irwinlab.compbio.ucsf.edu/",
-      img: caffeine,
     },
     {
       name: "SEA",
@@ -57,26 +47,18 @@ function App() {
       url: "https://wiki.docking.org/index.php?title=Main_Page",
       img: wiki,
     },
-    {
-      name: "DOCK",
-      description:
-        'DOCK addresses the problem of "docking" molecules to each other.',
-      url: "https://dock.docking.org/index.html",
-      img: dock,
-    },
+
     {
       name: "TLDR",
       description:
         "A public access service for computational ligand discovery. ",
       url: "https://tldr.docking.org/",
-      img: caffeine,
     },
     {
       name: "Excipients",
       description:
         "The goal of the project is to curate and disseminate information about excipients, the assumed-inactive substances found in food and drugs.",
       url: "https://excipients.docking.org/",
-      img: caffeine,
     },
     {
       name: "Aggregator Advisor",
@@ -86,11 +68,11 @@ function App() {
       img: advisor,
     },
     {
-      name: "AB3",
+      name: "LSD",
       description:
-        "A program to find analogs accessible via one step synthesis.",
-      url: "https://ab3.docking.org/",
-      img: ab3,
+        "Large Scale Docking (LSD) refers to screening of virtual compound libraries (ZINC15, ZINC22) using the DOCK3.7/3.8 software.",
+      url: "https://lsd.docking.org/",
+      img: lsd,
     },
     {
       name: "Smallworld Public",
@@ -160,19 +142,41 @@ function App() {
       description:
         "A free database of commercially-available compounds for virtual screening.",
       url: "https://zinc15.docking.org/",
-      img: caffeine,
     },
     {
       name: "ZINC 20",
       description:
         "A free database of commercially-available compounds for virtual screening.",
       url: "https://zinc20.docking.org/",
-      img: caffeine,
     },
-  ]);
+    {
+      name: "AWS",
+      description:
+        "This product is part of the AWS Open Data Sponsorship Program and contains data sets that are publicly available for anyone to access and use.",
+      url: "https://aws.amazon.com/marketplace/pp/prodview-cclrxhtx5xibk#resources",
+      img: aws,
+    },
+  ];
 
-  function sortData() {
-    const sortedData = [...websiteInfo].sort((a, b) => {
+  const importantWebsites = [
+    {
+      name: "BKS Lab",
+      description:
+        "The Shoichet lab seeks to bring chemical reagents to biology, combining computation and experiment.",
+      url: "https://bkslab.org/home",
+      img: bks,
+    },
+    {
+      name: "DOCK",
+      description:
+        'DOCK addresses the problem of "docking" molecules to each other.',
+      url: "https://dock.docking.org/index.html",
+      img: dock,
+    },
+  ];
+
+  function sortData(websiteList) {
+    const sortedData = [...websiteList].sort((a, b) => {
       if (a.name < b.name) {
         return -1;
       }
@@ -185,8 +189,8 @@ function App() {
     return sortedData;
   }
 
-  function chunkData() {
-    const sortedData = sortData();
+  function chunkData(websiteList) {
+    const sortedData = sortData(websiteList);
     const chunks = [];
 
     for (let i = 0; i < sortedData.length; i += 5) {
@@ -196,8 +200,8 @@ function App() {
     return chunks;
   }
 
-  function ShowCards() {
-    return chunkData().map((chunk, rowIndex) => (
+  function ShowCards({ websiteList }) {
+    return chunkData(websiteList).map((chunk, rowIndex) => (
       <Row key={`row-${rowIndex}`} className="mb-4 justify-content-md-center">
         {chunk.map((website, colIndex) => (
           <Col key={website.name + colIndex} sm={12} md={6} lg={2}>
@@ -208,7 +212,7 @@ function App() {
               <Card.Img
                 className="card-image"
                 variant="top"
-                src={website.img}
+                src={website.img ? website.img : caffeine}
               />
               <Card.Header className="centerText">{website.name}</Card.Header>
               <Card.Body className="centerText">
@@ -224,11 +228,16 @@ function App() {
   return (
     <Container style={{ margin: "auto" }} fluid className="hub_container">
       <br></br>
-      <h1 className="centerText">Welcome To The Hub!</h1>
+      <h1 className="centerText">
+        Welcome to docking.org, software from the Shoichet and Irwin labs at
+        UCSF!
+      </h1>
       <br></br>
-
       <Row>
-        <ShowCards />
+        <ShowCards websiteList={importantWebsites} />
+      </Row>
+      <Row>
+        <ShowCards websiteList={websiteInfo} />
       </Row>
     </Container>
   );
