@@ -1,5 +1,6 @@
 import "./Home.css";
 import { Container, Card, Row, Col } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 import caffeine from "./Images/caffeine.png";
 import advisor from "./Images/advisor.png";
@@ -14,6 +15,24 @@ import lsd from "./Images/lsd.png";
 import aws from "./Images/aws.png";
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
+  // Add resize listener
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Determine columns based on screen size
+  const getColumnCount = () => {
+    if (windowWidth < 576) return 1;      // Mobile
+    if (windowWidth < 768) return 2;      // Small tablets
+    if (windowWidth < 992) return 3;      // Large tablets
+    if (windowWidth < 1200) return 4;     // Small desktops
+    return 5;                             // Large desktops
+  };
+
   const websiteInfo = [
     {
       name: "Amis",
@@ -47,7 +66,6 @@ function App() {
       url: "https://wiki.docking.org/index.php?title=Main_Page",
       img: wiki,
     },
-
     {
       name: "TLDR",
       description:
@@ -105,28 +123,28 @@ function App() {
     {
       name: "Arthor Public",
       description:
-        "NextMove Software’s Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
+        "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthor.docking.org/index.html",
       img: nextmove,
     },
     {
       name: "Arthor Private",
       description:
-        "NextMove Software’s Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
+        "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorp.docking.org/index.html",
       img: nextmove,
     },
     {
       name: "Arthor Building Blocks",
       description:
-        "NextMove Software’s Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
+        "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorbb.docking.org/index.html",
       img: nextmove,
     },
     {
       name: "Arthor Chemistry Commons",
       description:
-        "NextMove Software’s Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
+        "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorcc.docking.org/index.html",
       img: nextmove,
     },
@@ -176,25 +194,20 @@ function App() {
   ];
 
   function sortData(websiteList) {
-    const sortedData = [...websiteList].sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
+    return [...websiteList].sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
       return 0;
     });
-
-    return sortedData;
   }
 
   function chunkData(websiteList) {
     const sortedData = sortData(websiteList);
+    const columnCount = getColumnCount();
     const chunks = [];
 
-    for (let i = 0; i < sortedData.length; i += 5) {
-      chunks.push(sortedData.slice(i, i + 5));
+    for (let i = 0; i < sortedData.length; i += columnCount) {
+      chunks.push(sortedData.slice(i, i + columnCount));
     }
 
     return chunks;
@@ -202,18 +215,26 @@ function App() {
 
   function ShowCards({ websiteList }) {
     return chunkData(websiteList).map((chunk, rowIndex) => (
-      <Row key={`row-${rowIndex}`} className="mb-4 justify-content-md-center">
+      <Row key={`row-${rowIndex}`} className="mb-4 justify-content-center g-3">
         {chunk.map((website, colIndex) => (
-          <Col key={website.name + colIndex} sm={12} md={6} lg={2}>
+          <Col 
+            key={website.name + colIndex} 
+            xs={12} 
+            sm={6} 
+            md={getColumnCount() === 3 ? 4 : 6} 
+            lg={getColumnCount() === 5 ? 2 : 3}
+          >
             <Card
               onClick={() => window.open(website.url, "_blank")}
-              style={{ height: "100%" }}
+              className="h-100"
             >
-              <Card.Img
-                className="card-image"
-                variant="top"
-                src={website.img ? website.img : caffeine}
-              />
+              <div className="card-image-container">
+                <Card.Img
+                  className="card-image"
+                  src={website.img ? website.img : caffeine}
+                  alt={website.name}
+                />
+              </div>
               <Card.Header className="centerText">{website.name}</Card.Header>
               <Card.Body className="centerText">
                 <Card.Text>{website.description}</Card.Text>
@@ -226,19 +247,21 @@ function App() {
   }
 
   return (
-    <Container style={{ margin: "auto" }} fluid className="hub_container">
-      <br></br>
-      <h1 className="centerText">
+    <Container fluid className="hub_container py-4">
+      <h1 className="centerText mb-4">
         Welcome to docking.org, software from the Shoichet and Irwin labs at
         UCSF!
       </h1>
-      <br></br>
-      <Row>
+      
+      <div className="container mb-4">
+        <h2 className="centerText mb-3">Featured Resources</h2>
         <ShowCards websiteList={importantWebsites} />
-      </Row>
-      <Row>
+      </div>
+      
+      <div className="container">
+        <h2 className="centerText mb-3">All Resources</h2>
         <ShowCards websiteList={websiteInfo} />
-      </Row>
+      </div>
     </Container>
   );
 }
