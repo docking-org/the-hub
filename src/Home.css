@@ -104,6 +104,6 @@ body {
 /* For large screens - make cards appear in a grid */
 @media (min-width: 1200px) {
   .hub_container {
-    max-width: 1400px;
+    max-width: 2500px;
   }
 }

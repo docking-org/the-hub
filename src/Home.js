@@ -254,12 +254,10 @@ function App() {
       </h1>
       
       <div className="container mb-4">
-        <h2 className="centerText mb-3">Featured Resources</h2>
         <ShowCards websiteList={importantWebsites} />
       </div>
       
       <div className="container">
-        <h2 className="centerText mb-3">All Resources</h2>
         <ShowCards websiteList={websiteInfo} />
       </div>
     </Container>
