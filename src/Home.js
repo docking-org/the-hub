@@ -253,11 +253,11 @@ function App() {
         UCSF!
       </h1>
       
-      <div className="container mb-4">
+      <div >
         <ShowCards websiteList={importantWebsites} />
       </div>
       
-      <div className="container">
+      <div>
         <ShowCards websiteList={websiteInfo} />
       </div>
     </Container>
