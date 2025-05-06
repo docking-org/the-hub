@@ -13,6 +13,16 @@ import wiki from "./Images/wiki.jpg";
 import cc from "./Images/cc.jpg";
 import lsd from "./Images/lsd.png";
 import aws from "./Images/aws.png";
+import files from "./Images/files.png"
+import files2 from "./Images/files2.png"
+import docs from "./Images/docs.png"
+import props from "./Images/props.png"
+import tldr from  "./Images/tldr.png"
+import excipients from "./Images/excipients.png"
+import irwinlab from "./Images/irwinlab.png"
+import cartblanche from "./Images/cartblance.png"
+import zinc15 from "./Images/zinc15.svg"
+import zinc20 from "./Images/zinc20.svg"
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -46,12 +56,14 @@ function App() {
       description:
         "Cartblanche22, an interface to ZINC-22. ZINC-22 is a free database of commercially-available compounds for virtual screening.",
       url: "https://cartblanche22.docking.org/",
+      img: cartblanche,
     },
     {
       name: "Irwin Lab",
       description:
         "We develop software tools and databases for ligand discovery and systems pharmacology.",
       url: "https://irwinlab.compbio.ucsf.edu/",
+      img: irwinlab,
     },
     {
       name: "SEA",
@@ -71,12 +83,14 @@ function App() {
       description:
         "A public access service for computational ligand discovery. ",
       url: "https://tldr.docking.org/",
+      img: tldr,
     },
     {
       name: "Excipients",
       description:
         "The goal of the project is to curate and disseminate information about excipients, the assumed-inactive substances found in food and drugs.",
       url: "https://excipients.docking.org/",
+      img: excipients,
     },
     {
       name: "Aggregator Advisor",
@@ -160,12 +174,14 @@ function App() {
       description:
         "A free database of commercially-available compounds for virtual screening.",
       url: "https://zinc15.docking.org/",
+      img: zinc15,
     },
     {
       name: "ZINC 20",
       description:
         "A free database of commercially-available compounds for virtual screening.",
       url: "https://zinc20.docking.org/",
+      img: zinc20,
     },
     {
       name: "AWS",
@@ -173,6 +189,34 @@ function App() {
         "This product is part of the AWS Open Data Sponsorship Program and contains data sets that are publicly available for anyone to access and use.",
       url: "https://aws.amazon.com/marketplace/pp/prodview-cclrxhtx5xibk#resources",
       img: aws,
+    },
+    {
+      name: "Docs",
+      description:
+        "A virtual document that provides a guide on running a large-scale virtual screen using the DOCK software suite.",
+      url: "https://docs.docking.org/index.html",
+      img: docs,
+    },
+    {
+      name: "Files",
+      description:
+        "A file server that contains static files to support ZINC, DOCK, DUDE, SEA, DUC, DOCK Blaster and other products.",
+      url: "https://files.docking.org/",
+      img: files,
+    },
+    {
+      name: "Files 2",
+      description:
+        "A second file server that contains static files to support ZINC, DOCK, DUDE, SEA, DUC, DOCK Blaster and other products.",
+      url: "https://files2.docking.org/",
+      img: files2,
+    },
+    {
+      name: "Props",
+      description:
+        "A web service for simplifying the calculation of molecular properties.",
+      url: "https://files2.docking.org/",
+      img: props,
     },
   ];
 
