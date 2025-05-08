@@ -7,7 +7,6 @@ Icon Imports
 */
 import caffeine from "./Images/caffeine.png";
 import advisor from "./Images/advisor.png";
-import nextmove from "./Images/arthor_nextmove.png";
 import bks from "./Images/bks.jpg";
 import dock from "./Images/dock.jpg";
 import sea from "./Images/sea.jpg";
@@ -31,6 +30,15 @@ import blaster from "./Images/blaster.png"
 import dude from "./Images/dude.jpg"
 import dudez from "./Images/dude-z.png"
 import dock_github from ".//Images/dock_github.jpeg"
+import bb_sw from "./Images/bb_sw.png"
+import cc_sw from "./Images/cc_sw.png"
+import public_sw from "./Images/public_sw.png"
+import private_sw from "./Images/private_sw.png"
+import bb_arthor from "./Images/bb_arthor.png"
+import cc_arthor from "./Images/cc_arthor.png"
+import public_arthor from "./Images/public_arthor.png"
+import private_arthor from "./Images/private_arthor.png"
+import covalent_arthor from "./Images/covalent_arthor.png"
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -120,56 +128,56 @@ function App() {
       description:
         "SmallWorld is a chemical database indexing technology that enables rapid 2D similarity queries based upon Graph Edit Distance (GED).",
       url: "https://sw.docking.org/search.html",
-      img: nextmove,
+      img: public_sw,
     },
     {
       name: "Smallworld Private",
       description:
         "SmallWorld is a chemical database indexing technology that enables rapid 2D similarity queries based upon Graph Edit Distance (GED).",
       url: "https://swp.docking.org/search.html",
-      img: nextmove,
+      img: private_sw,
     },
     {
       name: "Smallworld Building Blocks",
       description:
         "SmallWorld is a chemical database indexing technology that enables rapid 2D similarity queries based upon Graph Edit Distance (GED).",
       url: "https://swbb.docking.org/search.html",
-      img: nextmove,
+      img: bb_sw,
     },
     {
       name: "Smallworld Chemistry Commons",
       description:
         "SmallWorld is a chemical database indexing technology that enables rapid 2D similarity queries based upon Graph Edit Distance (GED).",
       url: "https://swcc.docking.org/search.html",
-      img: nextmove,
+      img: cc_sw,
     },
     {
       name: "Arthor Public",
       description:
         "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthor.docking.org/index.html",
-      img: nextmove,
+      img: public_arthor,
     },
     {
       name: "Arthor Private",
       description:
         "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorp.docking.org/index.html",
-      img: nextmove,
+      img: private_arthor,
     },
     {
       name: "Arthor Building Blocks",
       description:
         "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorbb.docking.org/index.html",
-      img: nextmove,
+      img: bb_arthor,
     },
     {
       name: "Arthor Chemistry Commons",
       description:
         "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
       url: "https://arthorcc.docking.org/index.html",
-      img: nextmove,
+      img: cc_arthor,
     },
     {
       name: "Chemistry Commons",
@@ -258,9 +266,16 @@ function App() {
     {
       name: "Dock Github",
       description:
-        "TThe UCSF DOCK / ZINC / systems pharmacology development team develops software and databases for ligand discovery.",
+        "The UCSF DOCK / ZINC / systems pharmacology development team develops software and databases for ligand discovery.",
       url: "https://github.com/docking-org",
       img: dock_github,
+    },
+    {
+      name: "Arthor Covalent",
+      description:
+        "NextMove Software's Arthor suite of tools aim to provide very fast substructure and similarity searching with comparatively minimal hardware infrastructure.",
+      url: "https://arthorcovalent.docking.org/index.html",
+      img: covalent_arthor,
     },
   ];
 
