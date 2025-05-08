@@ -320,17 +320,9 @@ function App() {
 
       <Row >
         <Col>
-          <span className="text-muted pull-right">
-            <a target="_blank" rel="noopener noreferrer" >
-              About
-            </a>
-            &nbsp;|&nbsp;
+          <span>
             <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/4MpD6UF5AN">
               Discord
-            </a>
-            &nbsp;|&nbsp;
-            <a target="_blank" rel="noopener noreferrer" >
-              Usage
             </a>
             &nbsp;|&nbsp;
             <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/LZV1FCmLWxUWznVi9">Contact Us</a>
