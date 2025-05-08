@@ -24,8 +24,13 @@ import tldr from  "./Images/tldr.png"
 import excipients from "./Images/excipients.png"
 import irwinlab from "./Images/irwinlab.png"
 import cartblanche from "./Images/cartblance.png"
+import zinc12 from "./Images/zinc12.jpg"
 import zinc15 from "./Images/zinc15.svg"
 import zinc20 from "./Images/zinc20.svg"
+import blaster from "./Images/blaster.png"
+import dude from "./Images/dude.jpg"
+import dudez from "./Images/dude-z.png"
+import dock_github from ".//Images/dock_github.jpeg"
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -78,7 +83,7 @@ function App() {
     },
     {
       name: "Wiki",
-      description: "the wiki of the Shoichet Lab and Irwin Lab at UCSF.",
+      description: "The wiki of the Shoichet Lab and Irwin Lab at UCSF.",
       url: "https://wiki.docking.org/index.php?title=Main_Page",
       img: wiki,
     },
@@ -219,8 +224,43 @@ function App() {
       name: "Props",
       description:
         "A web service for simplifying the calculation of molecular properties.",
-      url: "https://files2.docking.org/",
+      url: "https://props.docking.org/",
       img: props,
+    },
+    {
+      name: "ZINC 12",
+      description:
+        "A free database of commercially-available compounds for virtual screening.",
+      url: "https://zinc12.docking.org/",
+      img: zinc12,
+    },
+    {
+      name: "Blaster",
+      description:
+        "A public access service for structure-based ligand discovery. DOCK Blaster aims to answer the question: What small molecules should I purchase and test for activity against my biological target for which I have a structure?",
+      url: "https://blaster.docking.org/",
+      img: blaster,
+    },
+    {
+      name: "DUDE",
+      description:
+        "An enhanced and rebuilt version of DUD, a directory of useful decoys. DUD-E is designed to help benchmark molecular docking programs by providing challenging decoys.",
+      url: "https://dude.docking.org/",
+      img: dude,
+    },
+    {
+      name: "DUDE-Z",
+      description:
+        "The next generation of DUDE, a directory of useful decoys. DUDE-Z is designed to help benchmark molecular docking programs by providing challenging decoys.",
+      url: "https://dudez.docking.org/",
+      img: dudez,
+    },
+    {
+      name: "Dock Github",
+      description:
+        "TThe UCSF DOCK / ZINC / systems pharmacology development team develops software and databases for ligand discovery.",
+      url: "https://github.com/docking-org",
+      img: dock_github,
     },
   ];
 
