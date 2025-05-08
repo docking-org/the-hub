@@ -2,6 +2,9 @@ import "./Home.css";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
+/*
+Icon Imports
+*/
 import caffeine from "./Images/caffeine.png";
 import advisor from "./Images/advisor.png";
 import nextmove from "./Images/arthor_nextmove.png";
@@ -26,6 +29,7 @@ import zinc20 from "./Images/zinc20.svg"
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const year = new Date().getFullYear();
   
   // Add resize listener
   useEffect(() => {
@@ -304,6 +308,51 @@ function App() {
       <div>
         <ShowCards websiteList={websiteInfo} />
       </div>
+
+
+      {/* 
+      
+      Footer
+
+      */}
+      <footer className="footer centerText">
+      < hr />
+
+      <Row >
+        <Col>
+          <span className="text-muted pull-right">
+            <a target="_blank" rel="noopener noreferrer" >
+              About
+            </a>
+            &nbsp;|&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/4MpD6UF5AN">
+              Discord
+            </a>
+            &nbsp;|&nbsp;
+            <a target="_blank" rel="noopener noreferrer" >
+              Usage
+            </a>
+            &nbsp;|&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/LZV1FCmLWxUWznVi9">Contact Us</a>
+            &nbsp;|&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://wiki.docking.org/index.php/Privacy_policy">
+              Privacy Policy
+            </a>
+            &nbsp;|&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://wiki.docking.org/index.php/Terms_And_Conditions">
+              Terms of Use
+            </a>
+            &nbsp;|&nbsp; © {year} <a target="_blank" rel="noopener noreferrer" href="https://irwinlab.compbio.ucsf.edu/">Irwin</a> and <a target="_blank" rel="noopener noreferrer" href="https://bkslab.org/">Shoichet</a> Labs and the UC Regents
+          </span>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p className="small muted">This is not an official UCSF website. The opinions or statements expressed herein should not be taken as a position of or endorsement by the University of California, San Francisco.</p>
+
+        </Col>
+      </Row>
+    </footer>
     </Container>
   );
 }
