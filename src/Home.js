@@ -40,6 +40,8 @@ import public_arthor from "./Images/public_arthor.png";
 import private_arthor from "./Images/private_arthor.png";
 import covalent_arthor from "./Images/covalent_arthor.png";
 import rad from "./Images/rad.png";
+import zinc_youtube from "./Images/zinc_youtube.png";
+import globus from "./Images/globus.png";
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -334,6 +336,20 @@ function App() {
         scoring function.`,
       url: "https://rad.docking.org/",
       img: rad,
+    },
+    {
+      name: "Chemistry4Biology Youtube",
+      description: `A youtube channel that showcases our free tools and databases
+      for ligand discovery.`,
+      url: "https://www.youtube.com/@chemistry4biology/videos",
+      img: zinc_youtube,
+    },
+    {
+      name: "How To Use Globus",
+      description: `A youtube channel that showcases our free tools and databases
+      for ligand discovery.`,
+      url: "https://wiki.docking.org/index.php?title=How_to_use_Globus",
+      img: globus,
     },
   ];
 
