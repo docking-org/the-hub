@@ -82,14 +82,7 @@ function App() {
       url: "https://cartblanche22.docking.org/",
       img: cartblanche,
     },
-    {
-      name: "Irwin Lab",
-      description: `
-        We develop software tools and databases for ligand discovery and systems pharmacology.
-        `,
-      url: "https://irwinlab.compbio.ucsf.edu/",
-      img: irwinlab,
-    },
+
     {
       name: "SEA",
       description: `
@@ -370,6 +363,14 @@ function App() {
         3.8.`,
       url: "https://dock.docking.org/index.html",
       img: dock,
+    },
+    {
+      name: "Irwin Lab",
+      description: `
+        We develop software tools and databases for ligand discovery and systems pharmacology.
+        `,
+      url: "https://irwinlab.compbio.ucsf.edu/",
+      img: irwinlab,
     },
   ];
 
