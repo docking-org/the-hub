@@ -23,14 +23,13 @@ import tldr from "./Images/tldr.png";
 import excipients from "./Images/excipients.png";
 import irwinlab from "./Images/irwinlab.png";
 import cartblanche from "./Images/cartblance.png";
-import zinc12 from "./Images/zinc12.jpg";
 import zinc15 from "./Images/zinc15.svg";
 import zinc20 from "./Images/zinc20.svg";
+import zinc26 from "./Images/zinc26.png";
 import blaster from "./Images/blaster.png";
 import dude from "./Images/dude.jpg";
 import dudez from "./Images/dude-z.png";
 import dock_github from ".//Images/dock_github.jpeg";
-import bb_sw from "./Images/bb_sw.png";
 import cc_sw from "./Images/cc_sw.png";
 import public_sw from "./Images/public_sw.png";
 import private_sw from "./Images/private_sw.png";
@@ -152,16 +151,6 @@ function App() {
       img: private_sw,
     },
     {
-      name: "Smallworld Building Blocks",
-      description: `
-        Use SWBB to search for reagents for sale at the gram scale, both in
-        stock and make-on-demand.  We thank NextMove Software for access to
-        and support of Smallworld.
-        `,
-      url: "https://swbb.docking.org/search.html",
-      img: bb_sw,
-    },
-    {
       name: "Smallworld Chemistry Commons",
       description: `
         Biologists and Medicinal Chemists! Use SWCC to search bespoke
@@ -234,6 +223,16 @@ function App() {
       img: zinc20,
     },
     {
+      name: "ZINC 26",
+      description: `
+        ZINC26 is a search tool for purchasable and precedented bioactive chemical space. 
+        It uses Smallworld and Arthor technology from NextMove Software to allow billions of molecules to be searched in seconds. 
+        There are three ways to use ZINC26: Interactive, Batch, and an API.
+        `,
+      url: "https://zinc26.docking.org/",
+      img: zinc26,
+    },
+    {
       name: "AWS",
       description: `ZINC is part of the AWS Open Data Sponsorship Program, for which we 
         are very grateful. You can find both ZINC20 and ZINC-22 on AWS.  The 
@@ -269,16 +268,6 @@ function App() {
         "A web service for simplifying the calculation of molecular properties.",
       url: "https://props.docking.org/",
       img: props,
-    },
-    {
-      name: "ZINC 12",
-      description: `
-        A free database of commercially available compounds for virtual
-        screening. Somewhat obsolete, but still somewhat interesting for
-        historical reference.  First released in 2010 and still running.
-        `,
-      url: "https://zinc12.docking.org/",
-      img: zinc12,
     },
     {
       name: "DOCK Blaster",
