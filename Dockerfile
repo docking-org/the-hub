@@ -1,9 +1,10 @@
 #React Initializations
-FROM node:18-alpine
+FROM node:24-alpine
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
-RUN npm install react-scripts --legacy-peer-deps
+RUN npm install vite
 COPY . .
 RUN npm run build
 EXPOSE 8000
